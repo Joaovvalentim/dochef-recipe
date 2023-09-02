@@ -31,11 +31,36 @@ function Vegans() {
         <h3>Receitas Vegetarianas</h3>
         <Splide 
         options={{
-            perPage: 3,
+            perPage: 5,
             arrows: false,
             pagination: false,
             drag: 'free',
-            gap: '5rem',
+            gap: '2rem',
+            // drag: 'free',
+            breakpoints: {
+                1629: {
+                    perPage: 4,
+                   
+                  },
+                1280: {
+                    perPage: 3,
+                   
+                  },
+                1024: {
+                  perPage: 3,
+                 
+                },
+                912: {
+                  perPage: 2,
+              
+                },
+                640: {
+                  perPage: 1,
+            
+                },
+              },
+              focus: "center",
+              updateOnMove : true,
         }}>
             {vegan.map((recipe) => {
                 return (

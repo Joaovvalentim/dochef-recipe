@@ -34,8 +34,32 @@ function Trending() {
                     perPage: 4,
                     arrows: false,
                     pagination: false,
-                    drag: 'free',
-                    gap: '5rem',
+                    // drag: 'free',
+                    breakpoints: {
+                        1629: {
+                            perPage: 4,
+                           
+                          },
+                        1280: {
+                            perPage: 3,
+                           
+                          },
+                        1024: {
+                          perPage: 3,
+                         
+                        },
+                        912: {
+                          perPage: 2,
+                      
+                        },
+                        640: {
+                          perPage: 1,
+                    
+                        },
+                      },
+                      focus: "center",
+                      gap: '2em',
+                      updateOnMove : true,
                 }}>
                     {trending.map((recipe) => {
                         return (
