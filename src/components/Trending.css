@@ -1,12 +1,29 @@
-.wrapper{
-    margin: 4rem 0rem;
+.image-content, .card-content {
+    flex-direction: column;
+    display: flex;
+    padding: 10px 14px;
+    align-items: center;
 }
-.card{
-    min-height: 14rem;
-    width: 12rem;
-    border-radius: 2rem;
-    overflow: hidden;
+.image-content{
     position: relative;
+    row-gap: 5px;
+    padding: 25px;
+}
+.card {
+    width: 200px;
+    border-radius: 25px;
+    background-color: #FFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.title{
+    text-decoration: none;
+    z-index: 10;
+    color: #707070;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
 }
 .card img{
     border-radius: 2rem;
@@ -14,30 +31,64 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
 }
-.gradient{
-    z-index: 3;
+.overlay{
     position: absolute;
-    width: 100%;
+    left: 0;
+    top: 0;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
-}
-p{
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    bottom: 0%;
-    transform: translate(-50%, 0%);
-    color: white;
     width: 100%;
+    background-color: #ff9300;
+    border-radius: 25px 25px 0 25px;
+
+}
+.overlay::before,
+.overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #ff9800;
+}
+.overlay::after{
+    border-radius: 0 25px 0 0 ;
+    background-color: #fff;
+}
+.card-image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #FFF;
+    padding: 3px;
+}
+
+.description{
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.description{
+    font-size: 14px;
+    color: #707070;
     text-align: center;
-    font-weight: 600;
-    font-size: 1rem;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.button{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #ff9300;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: #ff9800;
 }
 
 @media only screen and (max-width: 280px) {
@@ -46,3 +97,4 @@ p{
         width: 8rem;
     }
   }
+
