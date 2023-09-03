@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import './Searched.css';
@@ -67,9 +68,11 @@ function Searched() {
             return (
               <SplideSlide key={item.id}>
                 <div className="card">
-                  <p>{item.title}</p>
-                  <img src={item.image} alt={item.title} />
-                  <div className="gradient" />
+                  <Link to={'/info/' + item.id}>
+                    <p>{item.title}</p>
+                    <img src={item.image} alt={item.title} />
+                    <div className="gradient" />
+                  </Link>
                 </div>
               </SplideSlide>
             );
@@ -83,9 +86,11 @@ function Searched() {
             {similarRecipies.map((item) => {
               return (
                 <li key={item.id}>
+
                   <div className='list-similar'>
                     <a href={item.sourceUrl}>{item.title}</a>
                   </div>
+
                 </li>
               );
             })}

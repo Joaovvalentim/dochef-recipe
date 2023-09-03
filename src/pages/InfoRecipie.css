@@ -1,0 +1,31 @@
+.detail-wrapper{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    display: flex;
+}
+.detail-wrapper h2{
+    margin-bottom: 2rem;
+}
+.detail-wrapper li{
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+}
+.detail-wrapper ul{
+    margin-top: 2rem;
+}
+button.active{
+    background: linear-gradient(35deg, #494949, #313131);
+    color: white;
+}
+
+button{
+    padding: 1rem 2rem;
+    color: #313131;
+    background: white;
+    border: 2px solid black;
+    font-weight: 600;
+    margin-right: 2rem;
+}
+.info{
+    margin-left: 10rem;
+}
