@@ -39,10 +39,13 @@ function Searched() {
         <h3>Voce Pesquisou Por: {params.search}</h3>
         <Splide
           options={{
-            perPage: 4,
+            perPage: 6,
             arrows: false,
             pagination: false,
             breakpoints: {
+              2000: {
+                perPage: 5,
+              },
               1629: {
                 perPage: 4,
               },
@@ -52,7 +55,7 @@ function Searched() {
               1024: {
                 perPage: 3,
               },
-              912: {
+              980: {
                 perPage: 2,
               },
               640: {
@@ -67,14 +70,14 @@ function Searched() {
           {searchRecipies.map((item) => {
             return (
               <SplideSlide key={item.id}>
-                <div className="card">
-                  <Link to={'/info/' + item.id}>
-                    <p>{item.title}</p>
-                    <img src={item.image} alt={item.title} />
-                    <div className="gradient" />
+              <div className="card">
+                  <Link to={'/info/'+ item.id}>
+                      <img src={item.image} alt={item.title} />
+                      <div className="gradient" />
+                      <p className="title-trending">{item.title}</p>
                   </Link>
-                </div>
-              </SplideSlide>
+              </div>
+          </SplideSlide>
             );
           })}
         </Splide>
