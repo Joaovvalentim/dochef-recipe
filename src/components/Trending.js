@@ -32,7 +32,7 @@ function Trending() {
                 <h3>Receitas Polares</h3>
                 <Splide
                     options={{
-                        perPage: 4,
+                        perPage: 8,
                         arrows: false,
                         pagination: false,
                         // drag: 'free',
@@ -59,25 +59,16 @@ function Trending() {
                             },
                         },
                         focus: "center",
-                        gap: '2em',
-                        updateOnMove: true,
+                        gap: '15px',
                     }}>
                     {trending.map((recipe) => {
                         return (
                             <SplideSlide key={recipe.id}>
                                 <div className="card">
-                                    <Link to={'/info/' + recipe.id}>
-                                        <div className="image-content">
-                                            <span className="overlay"></span>
-                                            <div className="card-image">
-                                                <img src={recipe.image} alt={recipe.title} />
-                                            </div>
-                                        </div>
-                                        <div className="card-content">
-                                            <p className="title">{recipe.title}</p>
-                                            <p className="description">{recipe.sumary}</p>
-                                            <button type="button" className='button'>Ver Receita</button>
-                                        </div>
+                                    <Link to={'/info/'+ recipe}>
+                                        <img src={recipe.image} alt={recipe.title} />
+                                        <div className="gradient" />
+                                        <p className="title-trending">{recipe.title}</p>
                                     </Link>
                                 </div>
                             </SplideSlide>

@@ -13,8 +13,8 @@ function Home() {
               duration: 0.8,
             }}
                 >
-                <Vegans />
                 <Trending />
+                <Vegans />
             </motion.div>
     )
 }

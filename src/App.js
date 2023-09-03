@@ -2,8 +2,9 @@ import Pages from "./pages/Pages";
 import Category from "./components/Category";
 import { BrowserRouter } from 'react-router-dom'
 import Search from "./components/Search";
-
+import Footer from "./components/Footer";
 import './App.css';
+
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Category />
         <Search />
         <Pages />
+        <Footer/>
       </BrowserRouter>
 
     </div>

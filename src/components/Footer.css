@@ -1,0 +1,20 @@
+footer {
+    border-top: 1px solid rgba(39,39,39,0.3);
+    padding-top: 3px;
+    width: 100%;
+    height: 120px;
+    background: #ebe7e7;
+    padding: 0% 10%;
+}
+.footer-p{
+    color: black;
+    margin-top: 6px;
+}
+.footer-h2{
+    color: black;
+    margin-top: 6px;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 75px;
+}

@@ -21,7 +21,7 @@ function Search() {
                 <input placeholder="o que vamos comer hoje?" onChange={(e) => {
                     setInput(e.target.value)
                 }} type="text" value={input} ></input>
-                <p>Pesquise por receitas como: Muffin, Sandwich, Cookie.</p>
+                <p className='dicas'>Pesquise por receitas como: Muffin, Sandwich, Cookie.</p>
             </div>
         </form>
     )

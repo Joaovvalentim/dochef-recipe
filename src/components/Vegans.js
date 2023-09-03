@@ -32,7 +32,7 @@ function Vegans() {
         <h3>Receitas Vegetarianas</h3>
         <Splide
           options={{
-            perPage: 5,
+            perPage: 8,
             arrows: false,
             pagination: false,
             drag: 'free',
@@ -67,18 +67,10 @@ function Vegans() {
             return (
               <SplideSlide key={recipe.id}>
                 <div className="card">
-                  <Link to={'/info/' + recipe.id}>
-                    <div className="image-content">
-                      <span className="overlay"></span>
-                      <div className="card-image">
-                        <img src={recipe.image} alt={recipe.title} />
-                      </div>
-                    </div>
-                    <div className="card-content">
-                      <p className="title">{recipe.title}</p>
-                      <p className="description">{recipe.sumary}</p>
-                      <button type="button" className='button'>Ver Receita</button>
-                    </div>
+                  <Link to={'/info/' + recipe}>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <div className="gradient" />
+                    <p className="title-trending">{recipe.title}</p>
                   </Link>
                 </div>
               </SplideSlide>

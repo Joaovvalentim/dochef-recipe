@@ -1,19 +1,21 @@
-.formstyle{
+.formstyle {
     background-image: url(https://img.freepik.com/fotos-gratis/cebolinha-pimentao-alho-e-cogumelos-shiitake-em-uma-placa-de-madeira_1150-25629.jpg?w=1380&t=st=1693704874~exp=1693705474~hmac=eeeacd3ac368cf68833fed9571b1b791e90349f8053ef7e427836789c25b4672);
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 10px;
     height: 450px;
-    display: flex; 
-     align-items: center;
-    justify-content: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0rem;
 }
-.formstyle.outline{
+
+.formstyle.outline {
     width: 100%;
     position: relative;
 }
-.formstyle input{
+
+.formstyle input {
     border: none;
     font-size: 1rem;
     color: black;
@@ -23,16 +25,156 @@
     outline: none;
     width: 600px
 }
-.formstyle svg{
+
+.formstyle svg {
     position: absolute;
-    top: 29.rem; 
+    top: 27.1rem;
     transform: translate(100%, -50%);
     color: black;
 }
-p{
-    margin-top: 5px;
+
+p {
+    text-align: center;
     color: whitesmoke;
     font-size: 14px;
     font-style: italic;
-    margin-left: 75px;
+    margin-left: 25px;
 }
+@media only screen and (max-width: 1280px) {
+    .formstyle svg {
+        top: 27.3rem;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .formstyle svg {
+        top: 27.3rem;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .formstyle input {
+        width: 400px;
+    }
+
+    .dicas {
+        margin-left: 10px;
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width: 820px) {
+    .formstyle svg {
+        top: 27.5em;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .formstyle svg {
+        top: 26.2rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 45px;
+    }
+}
+@media only screen and (max-width: 660px) {
+    .formstyle input {
+        width: 300px;
+    }
+    .formstyle svg {
+        top: 23.4rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 135px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .formstyle input {
+        width: 300px;
+    }
+    .formstyle svg {
+        top: 24.8rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 85px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .formstyle input {
+        width: 300px;
+    }
+    .formstyle svg {
+        top: 23.3rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 135px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .formstyle input {
+        width: 300px;
+    }
+    .formstyle svg {
+        top: 22rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 175px;
+    }
+}
+@media only screen and (max-width: 460px) {
+    .formstyle input {
+        width: 260px;
+    }
+    .formstyle svg {
+        top: 22rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 175px;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .formstyle{
+        height: 250px;
+    }
+    .formstyle input {
+        width: 200px;
+        margin-top: 200px;
+        margin-left: 35px;
+        font-size: 10px;
+    }
+    .formstyle svg {
+        left: 125px;
+        top: 20.2rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 235px;
+    }
+}
+@media only screen and (max-width: 393px) {
+    .formstyle svg {
+        left: 115px;     
+       top: 20.2rem;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .formstyle{
+        height: 150px;
+    }
+    .formstyle input {
+        width: 170px;
+        margin-top: 250px;
+    }
+    .formstyle svg {
+        left: 105px;
+        top: 18.6rem;
+    }
+    .dicas {
+        margin-left: 10px;
+        margin-bottom: 235px;
+    }
+}
+
+
