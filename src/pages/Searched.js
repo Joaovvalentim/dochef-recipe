@@ -2,16 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import iconFavorite from '../img/favorite.png'
-import iconUnFavorite from '../img/unfavorite.png'
+import { useSelector, useDispatch } from 'react-redux';
+import { addToSearchFavorites, removeFromSearchFavorites } from '../store/searchFavoritesSlice'; // Importe as ações do Redux
+import iconFavorite from '../img/favorite.png';
+import iconUnFavorite from '../img/unfavorite.png';
 import '@splidejs/react-splide/css';
 import './Searched.css';
 
 function Searched() {
   const [searchRecipies, setSearchRecipies] = useState([]);
   const [similarRecipies, setSimilarRecipies] = useState([]);
-  const [favorites, setFavorites] = useState([]);
   let params = useParams();
+
+  // Use useSelector para obter a lista de favoritos de pesquisa
+  const searchFavorites = useSelector((state) => state.searchFavorites);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getSearched = async (name) => {
@@ -36,32 +41,18 @@ function Searched() {
     }
   }, [searchRecipies]);
 
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('searchedFavorites'));
-    if (storedFavorites) {
-      setFavorites(storedFavorites);
-    }
-  }, []);
-
   const toggleFavorite = (recipeId) => {
-    if (favorites.includes(recipeId)) {
-      // Remova dos favoritos
-      const updatedFavorites = favorites.filter(id => id !== recipeId);
-      setFavorites(updatedFavorites);
+    if (searchFavorites.includes(recipeId)) {
+      // Remova dos favoritos usando o Redux
+      dispatch(removeFromSearchFavorites(recipeId));
     } else {
-      // Adicione aos favoritos
-      const updatedFavorites = [...favorites, recipeId];
-      setFavorites(updatedFavorites);
+      // Adicione aos favoritos usando o Redux
+      dispatch(addToSearchFavorites(recipeId));
     }
   }
 
-  useEffect(() => {
-    // Atualize o localStorage quando os favoritos mudarem
-    localStorage.setItem('searchedFavorites', JSON.stringify(favorites));
-  }, [favorites]);
-
   const isFavorite = (recipeId) => {
-    return favorites.includes(recipeId);
+    return searchFavorites.includes(recipeId);
   }
 
   return (

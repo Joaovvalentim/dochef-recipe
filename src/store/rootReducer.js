@@ -1,11 +1,12 @@
-// rootReducer.js
-import { combineReducers } from 'redux';
-import favoritesReducer from './favoriteSlice'; // Importe o reducer que você definiu
-import veganFavoritesReducer from './veganFavoritesSlice.js'; // Importe o novo reducer
+import { combineReducers } from '@reduxjs/toolkit';
+import favoritesReducer from './favoriteSlice'; // Corrija o nome da importação
+import veganFavoritesSlice from './veganFavoritesSlice.js';
+import searchFavoritesSlice from './searchFavoritesSlice';
 
 const rootReducer = combineReducers({
-  favorites: favoritesReducer,
-  veganFavorites: veganFavoritesReducer, // Adicione o slice de veganFavorites
+  favorites: favoritesReducer, // Corrija o nome da chave aqui
+  veganFavorites: veganFavoritesSlice,
+  searchFavorites: searchFavoritesSlice,
   // Outros reducers, se houverem
 });
 
