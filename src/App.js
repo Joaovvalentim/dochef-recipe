@@ -1,23 +1,27 @@
-import Pages from "./pages/Pages";
-import Category from "./components/Category";
-import { BrowserRouter } from 'react-router-dom'
-import Search from "./components/Search";
-import Footer from "./components/Footer";
-import './App.css';
 
 
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store/configureStore'; // Importe o store configurado
+import Category from './components/Category';
+import Search from './components/Search';
+import Pages from './pages/Pages';
+import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Category />
-        <Search />
-        <Pages />
-        <Footer/>
-      </BrowserRouter>
+      <Provider store={store}>
 
-    </div>
+        <BrowserRouter>
+          <Category />
+          <Search />
+          <Pages />
+          <Footer />
+        </BrowserRouter>
+      </Provider>
+    </div >
   );
 }
 

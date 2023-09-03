@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addToFavorites, removeFromFavorites } from "../store/favoriteSlice";
 import iconFavorite from '../img/favorite.png'
 import iconUnFavorite from '../img/unfavorite.png'
 import '@splidejs/react-splide/css';
@@ -8,23 +10,16 @@ import './Trending.css';
 
 function Trending() {
     const [trending, setTrending] = useState([]);
-    const [favorites, setFavorites] = useState([]);
+    const favorites = useSelector((state) => state.favorites);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         getTrending();
     }, []);
 
     useEffect(() => {
-        // Você pode armazenar os favoritos no localStorage aqui
-        localStorage.setItem('favorites', JSON.stringify(favorites));
+        // Você não precisa mais armazenar os favoritos no localStorage aqui
     }, [favorites]);
-
-    useEffect(() => {
-        const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
-        if (storedFavorites) {
-            setFavorites(storedFavorites);
-        }
-    }, []);
 
     const getTrending = async () => {
         const check = localStorage.getItem('trending');
@@ -40,13 +35,11 @@ function Trending() {
 
     const toggleFavorite = (recipeId) => {
         if (favorites.includes(recipeId)) {
-            // Remova dos favoritos
-            const updatedFavorites = favorites.filter(id => id !== recipeId);
-            setFavorites(updatedFavorites);
+            // Remova dos favoritos usando o Redux
+            dispatch(removeFromFavorites(recipeId));
         } else {
-            // Adicione aos favoritos
-            const updatedFavorites = [...favorites, recipeId];
-            setFavorites(updatedFavorites);
+            // Adicione aos favoritos usando o Redux
+            dispatch(addToFavorites(recipeId));
         }
     }
 
