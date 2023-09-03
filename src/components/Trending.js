@@ -65,7 +65,7 @@ function Trending() {
                         return (
                             <SplideSlide key={recipe.id}>
                                 <div className="card">
-                                    <Link to={'/info/'+ recipe}>
+                                    <Link to={'/info/'+ recipe.id}>
                                         <img src={recipe.image} alt={recipe.title} />
                                         <div className="gradient" />
                                         <p className="title-trending">{recipe.title}</p>
