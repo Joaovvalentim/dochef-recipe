@@ -8,11 +8,39 @@
     color: #313131;
     margin-bottom: 2rem;
 }
-.image-details img{
+.image-info img{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;    border: 2px solid rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
 }
+.favorite-button-info img {
+    z-index: 999;
+    position: relative;
+    background-color: #00000050;
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    transition: background-color 0.3s; /* Adicione uma transição de 0.3 segundos */
+  }
+  .favorite-button-info img:hover {
+    cursor: pointer;
+    background-color: #000000; /* Altera a cor de fundo ao passar o mouse */
+  }
+  .fav-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Ajuste a margem conforme necessário */
+    margin-bottom: 2rem;
+  }
+  .fav-container h2{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+
+  }
+  .favorite-button-info {
+    margin-right: 10px; /* Espaçamento entre o botão e o texto */
+  }
+  
 .image-details{
     width: 100%;
 }
@@ -25,12 +53,12 @@
 .detail-wrapper ul{
     margin-top: 2rem;
 }
-button.active{
+.button-info.active{
     background: linear-gradient(35deg, #494949, #313131);
     color: white;
 }
 
-button{
+.button-info{
     padding: 1rem 2rem;
     color: #313131;
     background: white;
@@ -60,7 +88,7 @@ button{
 }
 
 @media only screen and (max-width: 1310px) {
-    button{
+    .button-info{
         padding: 1rem 1.5rem;
     }
     .image-details img{
@@ -71,17 +99,17 @@ button{
     }
   }
   @media only screen and (max-width: 1230px) {
-    button{
+    .button-info{
         padding: 1rem 1rem;
     }
   }
   @media only screen and (max-width: 1150px) {
-    button{
+    .button-info{
         padding: 0.8rem 0.5rem;
     }
   }
   @media only screen and (max-width: 1070px) {
-    button{
+    .button-info{
         padding: 1rem;
         margin-right: 0.2rem;
     }
@@ -100,7 +128,7 @@ button{
     }
   }
   @media only screen and (max-width: 900px) {
-    button{
+    .button-info{
         padding: 1rem 0.1rem;
         margin-right: 0.2rem;
 

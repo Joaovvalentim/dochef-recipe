@@ -15,6 +15,21 @@
   height: 100%;
   object-fit: cover;
 }
+.favorite-search img {
+  z-index: 999;
+  background-color: #00000050;
+  border-radius: 10px;
+  width: 35px;
+  height: 35px;
+  left: 240px;
+  top: 5px;
+  transition: background-color 0.3s; /* Adicione uma transição de 0.3 segundos */
+}
+
+.favorite-search img:hover {
+  cursor: pointer;
+  background-color: #000000; /* Altera a cor de fundo ao passar o mouse */
+}
 .gradient-search{
   z-index: 3;
   position: absolute;

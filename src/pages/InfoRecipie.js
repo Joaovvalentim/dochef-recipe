@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import iconFavorite from '../img/favorite.png';
+import iconUnFavorite from '../img/unfavorite.png';
 import './InfoRecipie.css';
 
 function InfoRecipie() {
@@ -15,6 +17,31 @@ function InfoRecipie() {
     const detailData = await data.json();
     setDetails(detailData);
   };
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('recipeFavorites'));
+    if (storedFavorites) {
+      setFavorites(storedFavorites);
+    }
+  }, []);
+
+  const toggleFavorite = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      // Remova dos favoritos
+      const updatedFavorites = favorites.filter(id => id !== recipeId);
+      setFavorites(updatedFavorites);
+    } else {
+      // Adicione aos favoritos
+      const updatedFavorites = [...favorites, recipeId];
+      setFavorites(updatedFavorites);
+    }
+  }
+
+  useEffect(() => {
+    // Atualize o localStorage quando os favoritos mudarem
+    localStorage.setItem('recipeFavorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     fetchDetails();
@@ -31,12 +58,29 @@ function InfoRecipie() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+  const isFavorite = (recipeId) => {
+    return favorites.includes(recipeId);
+  }
   return (
     <div className={`detail-wrapper ${isMobile ? 'mobile-layout' : ''}`}>
       <div className="image-details">
         <h2>{details.title}</h2>
-        <img src={details.image} alt="" />
+        <div className='image-info'>
+          <img src={details.image} alt="" />
+        </div>
+        <div className='fav-container'>
+          <button
+            className={`favorite-button-info ${isFavorite(params.name) ? 'favorited' : ''}`}
+            onClick={() => toggleFavorite(params.name)}
+          >
+            <img
+              src={isFavorite(params.name) ? iconUnFavorite : iconFavorite}
+              alt="Favorite Icon"
+            />
+          </button>
+          <h2>Adicionar oas favoritos</h2>
+        </div>
+
         <div className="info-text">
           <h2>Curiosidade sobre {details.title}</h2>
           <h6 className="summary-image" dangerouslySetInnerHTML={{ __html: details.summary }}></h6>
@@ -44,10 +88,10 @@ function InfoRecipie() {
       </div>
       <div className="info">
         <div className='buttons-container'>
-          <button className={activeButton === 'instruções' ? 'active' : ''} onClick={() => setActiveButton('instruções')}>
+          <button className={`button-info ${activeButton === 'instruções' ? 'active' : ''}`} onClick={() => setActiveButton('instruções')}>
             Instruções
           </button>
-          <button className={activeButton === 'ingredientes' ? 'active' : ''} onClick={() => setActiveButton('ingredientes')}>
+          <button className={`button-info ${activeButton === 'ingredientes' ? 'active' : ''}`} onClick={() => setActiveButton('ingredientes')}>
             Ingredientes
           </button>
         </div>

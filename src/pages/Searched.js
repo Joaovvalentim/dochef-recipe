@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import iconFavorite from '../img/favorite.png'
+import iconUnFavorite from '../img/unfavorite.png'
 import '@splidejs/react-splide/css';
 import './Searched.css';
 
 function Searched() {
   const [searchRecipies, setSearchRecipies] = useState([]);
   const [similarRecipies, setSimilarRecipies] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   let params = useParams();
 
   useEffect(() => {
@@ -32,6 +35,34 @@ function Searched() {
       getSimilarRecipies(firstRecipeId);
     }
   }, [searchRecipies]);
+
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('searchedFavorites'));
+    if (storedFavorites) {
+      setFavorites(storedFavorites);
+    }
+  }, []);
+
+  const toggleFavorite = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      // Remova dos favoritos
+      const updatedFavorites = favorites.filter(id => id !== recipeId);
+      setFavorites(updatedFavorites);
+    } else {
+      // Adicione aos favoritos
+      const updatedFavorites = [...favorites, recipeId];
+      setFavorites(updatedFavorites);
+    }
+  }
+
+  useEffect(() => {
+    // Atualize o localStorage quando os favoritos mudarem
+    localStorage.setItem('searchedFavorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  const isFavorite = (recipeId) => {
+    return favorites.includes(recipeId);
+  }
 
   return (
     <div>
@@ -68,16 +99,26 @@ function Searched() {
           }}
         >
           {searchRecipies.map((item) => {
+            const isFavorited = isFavorite(item.id);
             return (
               <SplideSlide key={item.id}>
-              <div className="card-search">
-                  <Link to={'/info/'+ item.id}>
-                      <img src={item.image} alt={item.title} />
-                      <div className="gradient-search" />
-                      <p className="title-search">{item.title}</p>
+                <div className="card-search">
+                  <Link to={'/info/' + item.id}>
+                    <img src={item.image} alt={item.title} />
+                    <div className="gradient-search" />
+                    <p className="title-search">{item.title}</p>
                   </Link>
-              </div>
-          </SplideSlide>
+                  <button
+                    className={`favorite-search ${isFavorited ? 'favorited' : ''}`}
+                    onClick={() => toggleFavorite(item.id)}
+                  >
+                    <img
+                      src={isFavorited ? iconUnFavorite : iconFavorite}
+                      alt="icone"
+                    />
+                  </button>
+                </div>
+              </SplideSlide>
             );
           })}
         </Splide>
@@ -89,11 +130,9 @@ function Searched() {
             {similarRecipies.map((item) => {
               return (
                 <li key={item.id}>
-
                   <div className='list-similar'>
                     <a href={item.sourceUrl}>{item.title}</a>
                   </div>
-
                 </li>
               );
             })}
