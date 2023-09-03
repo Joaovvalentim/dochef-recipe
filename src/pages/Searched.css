@@ -1,13 +1,13 @@
 .wrapper{
   margin: 4rem 0rem;
 }
-.card{
+.card-search{
   height: 280px;
   width: 280px;
   overflow: hidden;
   position: relative;
 }
-.card img{
+.card-search img{
   border-radius: 8px;
   position: absolute;
   left: 0;
@@ -15,14 +15,14 @@
   height: 100%;
   object-fit: cover;
 }
-.gradient{
+.gradient-search{
   z-index: 3;
   position: absolute;
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
 }
-.title-trending{
+.title-search{
   position: absolute;
   right: 0;
   bottom: 0;

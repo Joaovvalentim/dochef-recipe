@@ -70,11 +70,11 @@ function Searched() {
           {searchRecipies.map((item) => {
             return (
               <SplideSlide key={item.id}>
-              <div className="card">
+              <div className="card-search">
                   <Link to={'/info/'+ item.id}>
                       <img src={item.image} alt={item.title} />
-                      <div className="gradient" />
-                      <p className="title-trending">{item.title}</p>
+                      <div className="gradient-search" />
+                      <p className="title-search">{item.title}</p>
                   </Link>
               </div>
           </SplideSlide>
