@@ -18,9 +18,10 @@ function Search() {
         <form className='formstyle' onSubmit={submitHandler}>
             <div className='outline'>
                 <FaSearch />
-                <input onChange={(e) => {
+                <input placeholder="o que vamos comer hoje?" onChange={(e) => {
                     setInput(e.target.value)
-                }} type="text" value={input}></input>
+                }} type="text" value={input} ></input>
+                <p>Pesquise por receitas como: Muffin, Sandwich, Cookie.</p>
             </div>
         </form>
     )

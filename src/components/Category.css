@@ -1,31 +1,40 @@
 .list{
+    height: 200px;
     display: flex;
-    justify-content: center;
-    margin: 2rem 0rem;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px solid rgba(180, 178, 178, 0.5)
+}
+.litsnavlink{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.logo img{
+    width: 160px;
+    height: 160px;
 }
 .styledlink{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     margin-right: 2rem;
     text-decoration: none;
-    background: linear-gradient(35deg, #494949, #313131);
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
     cursor: pointer;
     transform: scale(0.8) ;
 }
 .styledlink h4{
-    color: white;
+    margin-top: 8px;
+    color: #393939;
     font-size: 0.8rem;
 }
 .styledlink svg{
-    color: white;
+    color: #393939;
     font-size: 1.5rem;
 }
 
 .styledlink.active {
-    background: linear-gradient(to right, #f27121, #e94057);
+    border-bottom: 2px solid #f27121;
 }

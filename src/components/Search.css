@@ -1,4 +1,9 @@
 .formstyle{
+    background-image: url(https://img.freepik.com/fotos-gratis/cebolinha-pimentao-alho-e-cogumelos-shiitake-em-uma-placa-de-madeira_1150-25629.jpg?w=1380&t=st=1693704874~exp=1693705474~hmac=eeeacd3ac368cf68833fed9571b1b791e90349f8053ef7e427836789c25b4672);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    height: 450px;
     display: flex; 
      align-items: center;
     justify-content: center; 
@@ -10,18 +15,24 @@
 }
 .formstyle input{
     border: none;
-    background: linear-gradient(35deg, #494949, #313131);
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1rem;
+    color: black;
     padding: 1rem 3rem;
     border: none;
     border-radius: 1rem;
     outline: none;
-    width: 100%;
+    width: 600px
 }
 .formstyle svg{
     position: absolute;
-    top: 2rem; 
+    top: 29.rem; 
     transform: translate(100%, -50%);
-    color: white;
+    color: black;
+}
+p{
+    margin-top: 5px;
+    color: whitesmoke;
+    font-size: 14px;
+    font-style: italic;
+    margin-left: 75px;
 }

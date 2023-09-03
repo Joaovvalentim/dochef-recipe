@@ -67,10 +67,18 @@ function Vegans() {
             return (
               <SplideSlide key={recipe.id}>
                 <div className="card">
-                  <Link to={'/info/'+ recipe.id}>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
-                    <div className="gradient" />
+                  <Link to={'/info/' + recipe.id}>
+                    <div className="image-content">
+                      <span className="overlay"></span>
+                      <div className="card-image">
+                        <img src={recipe.image} alt={recipe.title} />
+                      </div>
+                    </div>
+                    <div className="card-content">
+                      <p className="title">{recipe.title}</p>
+                      <p className="description">{recipe.sumary}</p>
+                      <button type="button" className='button'>Ver Receita</button>
+                    </div>
                   </Link>
                 </div>
               </SplideSlide>
