@@ -3,6 +3,7 @@ import Home from './Home'
 import Recipies from './Recipies'
 import Searched from './Searched'
 import InfoRecipie from './InfoRecipie'
+import Favorites from './Favorites'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
@@ -17,6 +18,7 @@ function Pages() {
         <Route path='/receita/:type' element={<Recipies />} />
         <Route path='/pesquisa/:search' element={<Searched />} />
         <Route path='/info/:name' element={<InfoRecipie />} />
+        <Route path='/favoritos' element={<Favorites />} />
       </Routes>
     </AnimatePresence>
   )

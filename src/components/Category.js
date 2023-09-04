@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
 import { GiNoodles, GiChopsticks } from 'react-icons/gi';
+import { MdOutlineFavorite } from 'react-icons/md';
 import { NavLink, Link } from 'react-router-dom';
 import  logo  from "../img/logo.png"
 import './Category.css';
@@ -53,6 +54,14 @@ function Category() {
         >
           <GiChopsticks />
           <h4>Japones</h4>
+        </NavLink>
+        <NavLink
+          className={`styledlink ${activeLink === 4 ? 'active' : ''}`}
+          onClick={() => setActive(4)}
+          to={'/favoritos'}
+        >
+          <MdOutlineFavorite />
+          <h4>Favoritos</h4>
         </NavLink>
       </div>
 
