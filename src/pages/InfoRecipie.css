@@ -1,5 +1,5 @@
 .detail-wrapper{
-    margin-top: 10rem;
+    margin-top: 3rem;
     margin-bottom: 5rem;
     display: flex;
     width: 100%;
@@ -91,7 +91,7 @@
     .button-info{
         padding: 1rem 1.5rem;
     }
-    .image-details img{
+    .image-info img{
         width: 450px;
     }
     .container-infos li,h3{
@@ -113,14 +113,14 @@
         padding: 1rem;
         margin-right: 0.2rem;
     }
-    .image-details img{
+    .image-info img{
         width: 400px;
     }
     
   }
 
   @media only screen and (max-width: 1070px) {
-    .image-details img{
+    .image-info img{
         width: 360px;
     }
     .container-infos li,h3{
@@ -141,7 +141,7 @@
     .info{
         margin: 0;
     }
-    .image-details img{
+    .image-info img{
         margin-left: 110px;
         width: 400px;
     }
@@ -157,32 +157,32 @@
     }
   }
   @media only screen and (max-width: 700px) {
-    .image-details img{
+    .image-info img{
         width: 320px;
     }
   }
   @media only screen and (max-width: 649px) {
-    .image-details img{
+    .image-info img{
         width: 300px;
     }
-    .image-details img{
+    .image-info img{
         margin-left: 85px;
     }
   }
 
   @media only screen and (max-width: 548px) {
-    .image-details img{
+    .image-info img{
         width: 280px;
     }
-    .image-details img{
+    .image-info img{
         margin-left: 65px;
     }
   }
   @media only screen and (max-width: 467px) {
-    .image-details img{
+    .image-info img{
         width: 230px;
     }
-    .image-details img{
+    .image-info img{
         margin-left: 65px;
     }
     .container-infos h3, h2{
@@ -191,22 +191,22 @@
     }
   }
   @media only screen and (max-width: 414px) {
-    .image-details img{
+    .image-info img{
         margin-left: 40px;
     }
 
   }
 
   @media only screen and (max-width: 375px) {
-    .image-details img{
+    .image-info img{
         width: 200px;
     }
-    .image-details img{
+    .image-info img{
         margin-left: 38px;
     }
   }
   @media only screen and (max-width: 300px) {
-    .image-details img{
+    .image-info img{
         margin-left: 15px;
     }
   }
