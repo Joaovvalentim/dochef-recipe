@@ -16,11 +16,6 @@ function Trending() {
     useEffect(() => {
         getTrending();
     }, []);
-
-    useEffect(() => {
-        // Você não precisa mais armazenar os favoritos no localStorage aqui
-    }, [favorites]);
-
     const getTrending = async () => {
         const check = localStorage.getItem('trending');
         if (check) {
@@ -33,18 +28,18 @@ function Trending() {
         }
     }
 
-    const toggleFavorite = (recipeId) => {
-        if (favorites.includes(recipeId)) {
+    const toggleFavorite = (recipe) => {
+        if (favorites.includes(recipe)) {
             // Remova dos favoritos usando o Redux
-            dispatch(removeFromFavorites(recipeId));
+            dispatch(removeFromFavorites(recipe));
         } else {
             // Adicione aos favoritos usando o Redux
-            dispatch(addToFavorites(recipeId));
+            dispatch(addToFavorites(recipe));
         }
     }
 
-    const isFavorite = (recipeId) => {
-        return favorites.includes(recipeId);
+    const isFavorite = (recipe) => {
+        return favorites.includes(recipe);
     }
 
     return (

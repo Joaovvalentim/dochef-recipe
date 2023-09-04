@@ -39,11 +39,3 @@
     border-bottom: 2px solid #f27121;
 }
 
-@media only screen and (max-width: 560px) {
-    .nalitsnavlinkv{
-        display: none;
-    }
-    .styledlink{
-        display: none;
-    }
-  }
