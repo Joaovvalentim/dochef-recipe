@@ -16,6 +16,7 @@ function Trending() {
     useEffect(() => {
         getTrending();
     }, []);
+
     const getTrending = async () => {
         const check = localStorage.getItem('trending');
         if (check) {
@@ -27,19 +28,34 @@ function Trending() {
             setTrending(data.recipes)
         }
     }
-
-    const toggleFavorite = (recipe) => {
-        if (favorites.includes(recipe)) {
-            // Remova dos favoritos usando o Redux
-            dispatch(removeFromFavorites(recipe));
+    const saveFavoritesToLocalStorage = (favorites) => {
+        const serializedFavorites = JSON.stringify(favorites);
+        localStorage.setItem("favorites", serializedFavorites);
+      }
+      
+      const toggleFavorite = (recipe) => {
+        if (isFavorite(recipe)) {
+          // Remova dos favoritos usando o Redux
+          dispatch(removeFromFavorites({ recipeId: recipe.id }));
+      
+          // Obtém a lista atualizada de favoritos após a remoção
+          const updatedFavorites = favorites.filter((fav) => fav.id !== recipe.id);
+      
+          // Salva os favoritos atualizados no localStorage
+          saveFavoritesToLocalStorage(updatedFavorites);
         } else {
-            // Adicione aos favoritos usando o Redux
-            dispatch(addToFavorites(recipe));
+          // Adicione aos favoritos usando o Redux
+          dispatch(addToFavorites({ recipe }));
+      
+          // Obtém a lista atualizada de favoritos após a adição
+          const updatedFavorites = [...favorites, recipe];
+      
+          // Salva os favoritos atualizados no localStorage
+          saveFavoritesToLocalStorage(updatedFavorites);
         }
-    }
-
+      }
     const isFavorite = (recipe) => {
-        return favorites.includes(recipe);
+        return favorites.some((favorite) => favorite.id === recipe.id);
     }
 
     return (
@@ -75,7 +91,7 @@ function Trending() {
                         gap: '15px',
                     }}>
                     {trending.map((recipe) => {
-                        const isFavorited = isFavorite(recipe.id);
+                        const isFavorited = isFavorite(recipe);
                         return (
                             <SplideSlide key={recipe.id}>
                                 <div className="card">
@@ -86,7 +102,7 @@ function Trending() {
                                     </Link>
                                     <button
                                         className={`favorite ${isFavorited ? 'favorited' : ''}`}
-                                        onClick={() => toggleFavorite(recipe.id)}
+                                        onClick={() => toggleFavorite(recipe)}
                                     >
                                         <img
                                             src={isFavorited ? iconUnFavorite : iconFavorite}
