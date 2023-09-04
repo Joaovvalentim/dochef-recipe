@@ -48,12 +48,14 @@ function Favorites() {
           <h3>Favoritos Gerais</h3>
           <div className="favorite-list">
             {favoriteRecipes.map((recipe) => (
-              <div className="favorite-item" key={recipe.id}>
-                <img src={recipe.image} alt={recipe.title} />
-                <h3>{recipe.title}</h3>
-                <button onClick={() => removeFavorite(recipe.id, 'general')}>Remover Favorito</button>
-                {/* Adicione outros detalhes da receita, se necessário */}
-              </div>
+              <Link to={'/info/' + recipe.id}>
+                <div className="favorite-item" key={recipe.id}>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <h3>{recipe.title}</h3>
+                  <button onClick={() => removeFavorite(recipe.id, 'general')}>Remover Favorito</button>
+                  {/* Adicione outros detalhes da receita, se necessário */}
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -62,12 +64,14 @@ function Favorites() {
           <h3>Favoritos de Pesquisa</h3>
           <div className="favorite-list">
             {searchFavorites.map((recipe) => (
-              <div className="favorite-item" key={recipe.id}>
-                <img src={recipe.image} alt={recipe.title} />
-                <h3>{recipe.title}</h3>
-                <button onClick={() => removeFavorite(recipe.id, 'search')}>Remover Favorito</button>
-                {/* Adicione outros detalhes da receita, se necessário */}
-              </div>
+              <Link to={'/info/' + recipe.id}>
+                <div className="favorite-item" key={recipe.id}>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <h3>{recipe.title}</h3>
+                  <button onClick={() => removeFavorite(recipe.id, 'search')}>Remover Favorito</button>
+                  {/* Adicione outros detalhes da receita, se necessário */}
+                </div>
+              </Link>
             ))}
           </div>
         </div>
