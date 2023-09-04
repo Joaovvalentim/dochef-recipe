@@ -65,6 +65,9 @@ function Vegans() {
             drag: 'free',
             gap: '2rem',
             breakpoints: {
+              1920: {
+                perPage: 6,
+            },
               1629: {
                 perPage: 4,
               },
