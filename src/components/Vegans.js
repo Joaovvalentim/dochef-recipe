@@ -6,7 +6,7 @@ import { addToFavorites, removeFromFavorites } from "../store/favoriteSlice";
 import iconFavorite from '../img/favorite.png'
 import iconUnFavorite from '../img/unfavorite.png'
 import '@splidejs/react-splide/css';
-import './Vegans.css'; 
+import './Trending.css'; 
 
 function Vegans() {
     const [vegan, setVegan] = useState([]);

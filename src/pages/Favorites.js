@@ -48,13 +48,13 @@ function Favorites() {
           <h3>Favoritos Gerais</h3>
           <div className="favorite-list">
             {favoriteRecipes.map((recipe) => (
-              <Link to={'/info/' + recipe.id}>
-                <div className="favorite-item" key={recipe.id}>
+              <div className="favorite-item" key={recipe.id}>
+                <Link to={'/info/' + recipe.id}>
                   <img src={recipe.image} alt={recipe.title} />
                   <h3>{recipe.title}</h3>
-                  <button onClick={() => removeFavorite(recipe.id, 'general')}>Remover Favorito</button>
-                </div>
-              </Link>
+                </Link>
+                <button onClick={() => removeFavorite(recipe.id, 'general')}>Remover Favorito</button>
+              </div>
             ))}
           </div>
         </div>
@@ -63,13 +63,13 @@ function Favorites() {
           <h3>Favoritos de Pesquisa</h3>
           <div className="favorite-list">
             {searchFavorites.map((recipe) => (
-              <Link to={'/info/' + recipe.id}>
-                <div className="favorite-item" key={recipe.id}>
+              <div className="favorite-item" key={recipe.id}>
+                <Link to={'/info/' + recipe.id}>
                   <img src={recipe.image} alt={recipe.title} />
                   <h3>{recipe.title}</h3>
-                  <button onClick={() => removeFavorite(recipe.id, 'search')}>Remover Favorito</button>
-                </div>
-              </Link>
+                </Link>
+                <button onClick={() => removeFavorite(recipe.id, 'search')}>Remover Favorito</button>
+              </div>
             ))}
           </div>
         </div>
