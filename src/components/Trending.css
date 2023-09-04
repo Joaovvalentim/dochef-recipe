@@ -26,12 +26,12 @@
     height: 35px;
     left: 140px;
     top: 5px;
-    transition: background-color 0.3s; /* Adicione uma transição de 0.3 segundos */
+    transition: background-color 0.3s; 
 }
 
 .favorite img:hover {
     cursor: pointer;
-    background-color: #000000; /* Altera a cor de fundo ao passar o mouse */
+    background-color: #000000; 
 }
 .gradient{
     z-index: 3;

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './store/configureStore'; // Importe o store configurado
+import store from './store/configureStore'; 
 import Category from './components/Category';
 import Search from './components/Search';
 import Pages from './pages/Pages';

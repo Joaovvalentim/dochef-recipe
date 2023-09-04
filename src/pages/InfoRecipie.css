@@ -153,7 +153,6 @@
     .container-infos h3 {
       font-size: 1rem;
     }
-    /* Adicione outras regras de estilo para outros elementos, se necessário */
   }
   @media only screen and (max-width: 830px) {
     .detail-wrapper {

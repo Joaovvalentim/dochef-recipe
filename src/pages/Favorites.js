@@ -53,7 +53,6 @@ function Favorites() {
                   <img src={recipe.image} alt={recipe.title} />
                   <h3>{recipe.title}</h3>
                   <button onClick={() => removeFavorite(recipe.id, 'general')}>Remover Favorito</button>
-                  {/* Adicione outros detalhes da receita, se necessário */}
                 </div>
               </Link>
             ))}
@@ -69,7 +68,6 @@ function Favorites() {
                   <img src={recipe.image} alt={recipe.title} />
                   <h3>{recipe.title}</h3>
                   <button onClick={() => removeFavorite(recipe.id, 'search')}>Remover Favorito</button>
-                  {/* Adicione outros detalhes da receita, se necessário */}
                 </div>
               </Link>
             ))}

@@ -61,7 +61,7 @@
   
   @media (max-width: 768px) {
     .favorite-list {
-      grid-template-columns: 1fr; /* Uma coluna no mobile */
+      grid-template-columns: 1fr; 
     }
   }
   
