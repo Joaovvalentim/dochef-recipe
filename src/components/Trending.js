@@ -32,7 +32,6 @@ function Trending() {
         const serializedFavorites = JSON.stringify(favorites);
         localStorage.setItem("favorites", serializedFavorites);
       }
-      
       const toggleFavorite = (recipe) => {
         if (isFavorite(recipe)) {
           // Remova dos favoritos usando o Redux
