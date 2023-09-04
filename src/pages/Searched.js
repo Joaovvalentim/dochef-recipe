@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToSearchFavorites, removeFromSearchFavorites } from '../store/searchFavoritesSlice'; // Importe as ações do Redux
+import { addToSearchFavorites, removeFromSearchFavorites, initializeSearchFavorites } from '../store/searchFavoritesSlice'; // Importe as ações do Redux
 import iconFavorite from '../img/favorite.png';
 import iconUnFavorite from '../img/unfavorite.png';
 import '@splidejs/react-splide/css';
@@ -41,18 +41,42 @@ function Searched() {
     }
   }, [searchRecipies]);
 
-  const toggleFavorite = (recipeId) => {
-    if (searchFavorites.includes(recipeId)) {
+  useEffect(() => {
+    const storedSearchFavorites = JSON.parse(localStorage.getItem('searchFavorites'));
+    if (storedSearchFavorites) {
+      dispatch(initializeSearchFavorites(storedSearchFavorites)); // Inicialize os favoritos de pesquisa com os valores do localStorage
+    }
+  }, [dispatch]);
+
+  const toggleFavorite = (recipe) => {
+    if (isFavorite(recipe.id)) {
       // Remova dos favoritos usando o Redux
-      dispatch(removeFromSearchFavorites(recipeId));
+      dispatch(removeFromSearchFavorites(recipe.id));
+
+      // Obtém a lista atualizada de favoritos após a remoção
+      const updatedFavorites = searchFavorites.filter((fav) => fav.id !== recipe.id);
+
+      // Salva os favoritos atualizados no localStorage
+      saveSearchFavoritesToLocalStorage(updatedFavorites);
     } else {
       // Adicione aos favoritos usando o Redux
-      dispatch(addToSearchFavorites(recipeId));
+      dispatch(addToSearchFavorites(recipe));
+
+      // Obtém a lista atualizada de favoritos após a adição
+      const updatedFavorites = [...searchFavorites, recipe];
+
+      // Salva os favoritos atualizados no localStorage
+      saveSearchFavoritesToLocalStorage(updatedFavorites);
     }
   }
 
   const isFavorite = (recipeId) => {
-    return searchFavorites.includes(recipeId);
+    return searchFavorites.some((favorite) => favorite.id === recipeId);
+  }
+
+  const saveSearchFavoritesToLocalStorage = (favorites) => {
+    const serializedSearchFavorites = JSON.stringify(favorites);
+    localStorage.setItem("searchFavorites", serializedSearchFavorites);
   }
 
   return (
@@ -71,7 +95,7 @@ function Searched() {
               1629: {
                 perPage: 4,
               },
-              1280: {
+              1400: {
                 perPage: 3,
               },
               1024: {
@@ -101,7 +125,7 @@ function Searched() {
                   </Link>
                   <button
                     className={`favorite-search ${isFavorited ? 'favorited' : ''}`}
-                    onClick={() => toggleFavorite(item.id)}
+                    onClick={() => toggleFavorite(item)}
                   >
                     <img
                       src={isFavorited ? iconUnFavorite : iconFavorite}
