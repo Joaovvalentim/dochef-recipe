@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addToFavorites, removeFromFavorites } from "../store/favoriteSlice";
+import { addToFavorites, removeFromFavorites } from "../store/favoriteSlice"; 
 import iconFavorite from '../img/favorite.png'
 import iconUnFavorite from '../img/unfavorite.png'
 import '@splidejs/react-splide/css';
-import './Trending.css';
+import './Vegans.css'; 
 
 function Vegans() {
     const [vegan, setVegan] = useState([]);
-    const favorites = useSelector((state) => state.favorites);
-    const dispatch = useDispatch();
+    const favorites = useSelector((state) => state.favorites); // Obtendo a lista de favoritos do Redux
+    const dispatch = useDispatch(); // Obtendo a função de despacho do Redux
 
     useEffect(() => {
         getVegan();
@@ -30,10 +30,23 @@ function Vegans() {
         }
     }
 
+    // Função para salvar os favoritos no localStorage
+    const saveFavoritesToLocalStorage = (favorites) => {
+        const serializedFavorites = JSON.stringify(favorites);
+        localStorage.setItem("favorites", serializedFavorites);
+    }
+
+    // Função para adicionar ou remover favorito
     const toggleFavorite = (recipe) => {
         if (isFavorite(recipe.id)) {
             // Remova dos favoritos usando o Redux
             dispatch(removeFromFavorites({ recipeId: recipe.id }));
+
+            // Obtém a lista atualizada de favoritos após a remoção
+            const updatedFavorites = favorites.filter((fav) => fav.id !== recipe.id);
+
+            // Salva os favoritos atualizados no localStorage
+            saveFavoritesToLocalStorage(updatedFavorites);
         } else {
             // Adicione aos favoritos usando o Redux
             dispatch(addToFavorites({ recipe }));
@@ -46,13 +59,9 @@ function Vegans() {
         }
     }
 
+    // Função para verificar se a receita é favorita
     const isFavorite = (recipe) => {
         return favorites.some((favorite) => favorite.id === recipe.id);
-    }
-
-    const saveFavoritesToLocalStorage = (favorites) => {
-        const serializedFavorites = JSON.stringify(favorites);
-        localStorage.setItem("favorites", serializedFavorites);
     }
 
     return (

@@ -1,13 +1,13 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import favoritesReducer from './favoriteSlice'; // Corrija o nome da importação
+import favoritesReducer from './favoriteSlice'; 
 import veganFavoritesSlice from './veganFavoritesSlice.js';
 import searchFavoritesSlice from './searchFavoritesSlice';
 
 const rootReducer = combineReducers({
-  favorites: favoritesReducer, // Corrija o nome da chave aqui
+  favorites: favoritesReducer, 
   veganFavorites: veganFavoritesSlice,
   searchFavorites: searchFavoritesSlice,
-  // Outros reducers, se houverem
+
 });
 
 export default rootReducer;

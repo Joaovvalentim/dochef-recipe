@@ -17,9 +17,11 @@ function InfoRecipie() {
     const detailData = await data.json();
     setDetails(detailData);
   };
+
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    // Recupere os favoritos do localStorage
     const storedFavorites = JSON.parse(localStorage.getItem('recipeFavorites'));
     if (storedFavorites) {
       setFavorites(storedFavorites);
@@ -58,9 +60,11 @@ function InfoRecipie() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   const isFavorite = (recipeId) => {
     return favorites.includes(recipeId);
   }
+
   return (
     <div className={`detail-wrapper ${isMobile ? 'mobile-layout' : ''}`}>
       <div className="image-details">

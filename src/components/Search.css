@@ -1,12 +1,12 @@
 .formstyle {
     background-image: url(https://img.freepik.com/fotos-gratis/cebolinha-pimentao-alho-e-cogumelos-shiitake-em-uma-placa-de-madeira_1150-25629.jpg?w=1380&t=st=1693704874~exp=1693705474~hmac=eeeacd3ac368cf68833fed9571b1b791e90349f8053ef7e427836789c25b4672);
-    background-size: cover; /* A imagem se ajustará à largura e altura do elemento, mantendo a proporção */
+    background-size: cover; 
     background-repeat: no-repeat;
-    background-position: center center; /* Centralize a imagem */
+    background-position: center center; 
     border-radius: 10px;
     padding: 20px;
     height: auto;
-    min-height: 450px; /* Defina uma altura mínima */
+    min-height: 450px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +14,7 @@
   }
   
   .form-content {
-    background-color: rgba(255, 255, 255, 0.8); /* Adicione um fundo semi-transparente para melhor legibilidade */
+    background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -57,23 +57,23 @@
   
   p.dicas {
     text-align: center;
-    color: black; /* Altere a cor do texto para melhor legibilidade */
+    color: black; 
     font-size: 14px;
     font-style: italic;
     margin-top: 10px;
   }
   @media screen and (max-width: 640px) {
-    /* Estilos para larguras menores ou iguais a 640px */
+
     .formstyle {
-      min-height: 300px; /* Altura menor para telas menores que 640px */
+      min-height: 300px; 
     }
   
     .search-input {
-      font-size: 0.8rem; /* Reduza o tamanho da fonte do input */
-      padding: 0.8rem 2rem; /* Reduza o padding do input */
+      font-size: 0.8rem; 
+      padding: 0.8rem 2rem; 
     }
   
     p.dicas {
-      font-size: 12px; /* Reduza o tamanho da fonte do texto de dicas */
+      font-size: 12px; 
     }
   }
