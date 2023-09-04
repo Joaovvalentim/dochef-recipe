@@ -54,14 +54,13 @@
 }
 
 /* Estilos para a lista de receitas similares */
-ul {
+.wrapper-ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Duas colunas */
     grid-gap: 20px; /* Espaçamento entre os itens */
   }
-  
-  li {
+  .wrapper-li{
     display: flex;
     flex-direction: column;
     align-items: center;

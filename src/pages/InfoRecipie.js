@@ -78,7 +78,7 @@ function InfoRecipie() {
               alt="Favorite Icon"
             />
           </button>
-          <h2>Adicionar oas favoritos</h2>
+          <h2>Adicionar aos favoritos</h2>
         </div>
 
         <div className="info-text">

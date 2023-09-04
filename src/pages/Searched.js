@@ -117,10 +117,10 @@ function Searched() {
       {similarRecipies.length > 0 && (
         <div className="wrapper">
           <h3>Receitas Similares:</h3>
-          <ul>
+          <ul className='wrapper-ul'>
             {similarRecipies.map((item) => {
               return (
-                <li key={item.id}>
+                <li className='wrapper-li' key={item.id}>
                   <div className='list-similar'>
                     <a href={item.sourceUrl}>{item.title}</a>
                   </div>
